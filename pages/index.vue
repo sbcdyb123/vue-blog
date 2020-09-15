@@ -18,13 +18,26 @@
       </div>
     </div>
     <div class="content">
-      <div />
+      <div class="start_dash">
+        <title-bar />
+        <div class="card_container">
+          <small-card />
+          <small-card />
+          <small-card />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import TitleBar from '@/components/common/TitleBar'
+import SmallCard from '@/components/common/SmallCard'
 export default {
+  components: {
+    TitleBar,
+    SmallCard
+  },
   data () {
     return {
       contact: [
@@ -60,10 +73,11 @@ export default {
 </script>
 <style lang="scss" scoped>
 .main {
+  background: white;
   .back_img {
     position: relative;
     height: 100vh;
-    background-image: url("~assets/bg-img.png");
+    background-image: url("~assets/img/bg-img.png");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
@@ -126,8 +140,16 @@ export default {
     }
   }
   .content {
-    // width: ;
+    margin: 0 550px;
     height: 2000px;
+    .start_dash{
+      margin-top: 80px;
+      .card_container{
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-evenly;
+      }
+    }
   }
 }
 .glitch {
