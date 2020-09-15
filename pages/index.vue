@@ -11,7 +11,7 @@
           </div>
           <div class="contact">
             <a v-for="item in contact" :key="item.link" :href="item.link" class="icon_wrap">
-              <a-icon :type="item.iconType" />
+              <a-icon :type="item.iconType" :style="'color:'+item.iconColor" />
             </a>
           </div>
         </div>
@@ -30,23 +30,28 @@ export default {
       contact: [
         {
           link: 'https://www.baidu.com/',
-          iconType: 'github'
+          iconType: 'github',
+          iconColor: '#F1F1F1'
         },
         {
           link: 'https://www.baidu.com/',
-          iconType: 'weibo-circle'
+          iconType: 'weibo-circle',
+          iconColor: '#F1F1F1'
         },
         {
           link: 'https://www.baidu.com/',
-          iconType: 'qq'
+          iconType: 'qq',
+          iconColor: '#F1F1F1'
         },
         {
           link: 'https://www.baidu.com/',
-          iconType: 'wechat'
+          iconType: 'wechat',
+          iconColor: '#83D944'
         },
         {
           link: 'https://www.baidu.com/',
-          iconType: 'zhihu'
+          iconType: 'zhihu',
+          iconColor: '#0177D7'
         }
       ]
     }
@@ -89,6 +94,7 @@ export default {
           display: flex;
           justify-content: space-evenly;
           width: 100%;
+          margin-top: 10px;
           .icon_wrap{
             display: block;
             font-size: 20px;

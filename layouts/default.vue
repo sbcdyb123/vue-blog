@@ -14,8 +14,8 @@
   </div>
 </template>
 <script>
-import Header from '@/components/Layouts/Header'
 import Footer from '@/components/Layouts/Footer'
+import Header from '@/components/Layouts/Header'
 export default {
   components: {
     Header,
@@ -87,6 +87,9 @@ body {
     color: black;
   }
   .layout_header {
+    &:hover{
+      background-color: rgba(255,255,255,1);
+    }
     position: fixed;
     z-index: 1000;
     top: 0;
