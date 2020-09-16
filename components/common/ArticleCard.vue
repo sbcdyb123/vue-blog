@@ -54,6 +54,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .reverse {
   flex-direction: row-reverse;
 }
