@@ -26,6 +26,10 @@
           <small-card />
         </div>
       </div>
+      <div class="article_list">
+        <title-bar />
+        <article-card :article-list="articleList" />
+      </div>
     </div>
   </div>
 </template>
@@ -33,10 +37,12 @@
 <script>
 import TitleBar from '@/components/common/TitleBar'
 import SmallCard from '@/components/common/SmallCard'
+import ArticleCard from '@/components/common/ArticleCard'
 export default {
   components: {
     TitleBar,
-    SmallCard
+    SmallCard,
+    ArticleCard
   },
   data () {
     return {
@@ -65,6 +71,14 @@ export default {
           link: 'https://www.baidu.com/',
           iconType: 'zhihu',
           iconColor: '#0177D7'
+        }
+      ],
+      articleList: [
+        {
+          id: 1
+        },
+        {
+          id: 2
         }
       ]
     }

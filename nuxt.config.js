@@ -39,7 +39,7 @@ export default {
    */
   css: [
     'ant-design-vue/dist/antd.css',
-    '@/assets/scss/iconfont.scss'
+    '@/assets/scss/index.scss'
   ],
   /*
    ** Plugins to load before mounting the App
