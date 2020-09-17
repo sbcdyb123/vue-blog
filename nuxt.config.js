@@ -46,7 +46,12 @@ export default {
    ** https://nuxtjs.org/guide/plugins
    */
   plugins: [
-    '@/plugins/antd-ui'
+    '@/plugins/antd-ui',
+    {
+      src: '~/plugins/v-waypoint.js',
+      mode: 'client'
+    },
+    '@/plugins/animate.css.js'
   ],
   /*
    ** Auto import components
@@ -58,7 +63,8 @@ export default {
    */
   buildModules: [
     // Doc: https://github.com/nuxt-community/eslint-module
-    '@nuxtjs/eslint-module'
+    '@nuxtjs/eslint-module',
+    '@nuxtjs/style-resources'
   ],
   /*
    ** Nuxt.js modules
@@ -76,12 +82,19 @@ export default {
    ** Build configuration
    ** See https://nuxtjs.org/api/configuration-build/
    */
+  loading: { color: '#3B8070' },
   build: {
-    // ....
     babel: {
       plugins: [
         '@babel/plugin-proposal-optional-chaining'
       ]
     }
+  },
+  styleResources: {
+    // your settings here
+    scss: [
+      './assets/scss/var/variables.scss',
+      './assets/scss/var/mixins.scss'
+    ]
   }
 }

@@ -86,6 +86,9 @@ body {
     transition: all 0.5s;
     color: black;
   }
+  .ant-layout-footer{
+    background: white;
+  }
   .layout_header {
     &:hover{
       background-color: rgba(255,255,255,1);

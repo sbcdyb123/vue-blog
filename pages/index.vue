@@ -30,6 +30,7 @@
         <title-bar />
         <article-card :article-list="articleList" />
       </div>
+      <previous-button @click.native="addArticle" />
     </div>
   </div>
 </template>
@@ -38,11 +39,13 @@
 import TitleBar from '@/components/common/TitleBar'
 import SmallCard from '@/components/common/SmallCard'
 import ArticleCard from '@/components/common/ArticleCard'
+import PreviousButton from '@/components/common/PreviousButton'
 export default {
   components: {
     TitleBar,
     SmallCard,
-    ArticleCard
+    ArticleCard,
+    PreviousButton
   },
   data () {
     return {
@@ -81,6 +84,11 @@ export default {
           id: 2
         }
       ]
+    }
+  },
+  methods: {
+    addArticle () {
+      this.articleList = [...[{ id: '' }, { id: '' }], ...this.articleList]
     }
   }
 }
@@ -155,7 +163,6 @@ export default {
   }
   .content {
     margin: 0 550px;
-    height: 2000px;
     .start_dash{
       margin-top: 80px;
       .card_container{
