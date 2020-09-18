@@ -12,3 +12,4 @@ export function addClass (el, className) {
   newClass.push(className)
   el.className = newClass.join(' ')
 }
+export const baseurl = process.env.NODE_ENV === 'production' ? 'https://api.brianlee.cn' : 'http://localhost:5000'
