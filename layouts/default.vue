@@ -16,6 +16,8 @@
 <script>
 import Footer from '@/components/Layouts/Footer'
 import Header from '@/components/Layouts/Header'
+
+import { mapMutations } from 'vuex'
 export default {
   components: {
     Header,
@@ -23,10 +25,12 @@ export default {
   },
   data () {
     return {
-      scrollValue: 0 // 鼠标滚动的指
     }
   },
   computed: {
+    scrollValue () {
+      return this.$store.state.scrollValue
+    },
     HeaderBgTransparent () {
       // 控制头部导航的背景颜色显示或者消失
       const value = this.scrollValue
@@ -46,9 +50,10 @@ export default {
     this.initScroll()
   },
   methods: {
+    ...mapMutations(['setScrollValue']),
     initScroll () {
       const scrollFunc = () => {
-        this.scrollValue = this.getScroll().y
+        this.setScrollValue(this.getScroll().y)
       }
       window.onscroll = document.onscroll = scrollFunc // IE/Opera/Chrome
     },
@@ -79,6 +84,7 @@ body {
 }
 .no_transparent_bg {
   background-color: rgba(255, 255, 255, 1);
+  box-shadow: 0 1px 40px -8px rgba(0,0,0,.5);
 }
 .layout_container {
   & .ant-layout-footer,
@@ -86,7 +92,7 @@ body {
     transition: all 0.5s;
     color: black;
   }
-  .ant-layout-footer{
+  .ant-layout-footer,.ant-layout-content{
     background: white;
   }
   .layout_header {
