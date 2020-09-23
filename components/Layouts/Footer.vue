@@ -28,7 +28,7 @@ export default {
 
 <style lang="scss" scoped>
 .footer{
-  margin: 0 500px ;
+  margin: 0 450px ;
   .icon{
     color: #E74C3C;
   }

@@ -8,7 +8,10 @@
         </div>
         <div class="other">
           <div class="avatar">
-            <img src="https://gravatar.loli.net/avatar/cd2b3a164c977539712929f66cad335c?s=96&d=mm&r=g" alt="">
+            <img
+              src="https://gravatar.loli.net/avatar/cd2b3a164c977539712929f66cad335c?s=96&d=mm&r=g"
+              alt
+            >
           </div>
           <div class="author">
             Mashiro
@@ -27,11 +30,22 @@
       <div class="award">
         赏
       </div>
-      <div>
-        <i>icon</i>
-        <span>VUE</span>
-        <span>Javascript</span>
-        <span>CSS</span>
+      <div class="footnotes">
+        <div class="tag_info">
+          <a-icon type="tags" theme="filled" class="tag_icon" />
+          <span>VUE</span>
+          <span>JAVASCRIPT</span>
+          <span>CSS</span>
+        </div>
+        <div class="like_share">
+          <div class="share">
+            <a-icon type="share-alt" />
+          </div>
+          <div class="like">
+            <a-icon type="like" theme="filled" />
+            <span>20</span>
+          </div>
+        </div>
       </div>
       <hr>
     </div>
@@ -139,16 +153,38 @@ export default {
 <style lang="scss" scoped>
 .article_container {
   background: white;
-  .tag{
-    padding: 0 500px ;
-    .award{
+  .tag {
+    padding: 0 500px;
+    .award {
       width: 40px;
       height: 40px;
       border-radius: 20px;
       background-color: #d34836;
+      margin: 0 auto;
       text-align: center;
       line-height: 40px;
-      color: #FFFFFF;
+      color: #ffffff;
+    }
+    .footnotes {
+      display: flex;
+      justify-content: space-between;
+      .tag_info {
+        display: flex;
+        align-items: center;
+        .tag_icon {
+          margin-right: 5px;
+        }
+        font-size: 15px;
+        span + span {
+          margin-left: 5px;
+        }
+      }
+      .like_share{
+        display: flex;
+        div + div{
+          margin-left: 20px;
+        }
+      }
     }
   }
   .img_container {
@@ -157,32 +193,34 @@ export default {
     padding-top: 64px;
     overflow: hidden;
     position: relative;
-    .article_info{
+    .article_info {
       position: absolute;
       bottom: 0;
       left: 50%;
       transform: translateX(-50%);
       z-index: 1;
-      color:#FFFFFF;
+      color: #ffffff;
       text-shadow: 2px 2px 10px #000;
-      .title{
+      .title {
         font-size: 32px;
         font-weight: bold;
       }
-      .other{
+      .other {
         display: flex;
         align-items: center;
         margin: 30px 0;
-        .avatar{
+        .avatar {
           width: 35px;
           height: 35px;
           border-radius: 35px;
           overflow: hidden;
         }
-        div + div{
+        div + div {
           margin-left: 10px;
         }
-        .author,.release_time,.reading_count{
+        .author,
+        .release_time,
+        .reading_count {
           font-size: 16px;
         }
       }
@@ -208,7 +246,7 @@ export default {
     z-index: 1;
     transform: translateY(-50%);
     transition: all 0.5s ease-out;
-    & /deep/ .ant-anchor-wrapper{
+    & /deep/ .ant-anchor-wrapper {
       background: transparent;
     }
   }
