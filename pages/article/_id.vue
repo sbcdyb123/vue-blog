@@ -84,6 +84,7 @@ import 'highlight.js/styles/atom-one-dark.css'
 import '@/assets/scss/vue.scss' // 引入markdown 样式
 
 export default {
+  scrollToTop: true,
   async asyncData ({ $axios }) {
     const res = await $axios.$get(
       'http://localhost:5000/v1/article/getArticleById/3'

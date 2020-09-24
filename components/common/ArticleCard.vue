@@ -48,7 +48,7 @@
 </template>
 
 <script>
-import { addClass, hasClass } from '@/utils'
+import { addClass } from '@/utils'
 export default {
   props: {
     articleList: {
@@ -66,9 +66,9 @@ export default {
     } // https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API
   }),
   methods: {
-    onWaypoint ({ going, el, direction }) {
-      if (going === 'in' && !hasClass(el, 'animate__animated')) {
-        addClass(el, 'animate__animated animate__fadeInUp')
+    onWaypoint ({ going, el }) {
+      if (going === 'in') {
+        addClass(el, 'FuzzyGradualEntryAnimation')
       }
       // going: in, out
       // direction: top, right, bottom, left
