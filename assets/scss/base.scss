@@ -10,3 +10,12 @@ hr {
   border-color: initial;
   border-image: initial;
 }
+.a_hover{
+  transition: color 0.2s ease-out;
+  &:hover{
+    color: #FE9600;
+  }
+}
+body{
+  font-family: 'Microsoft Yahei',sans-serif;
+}

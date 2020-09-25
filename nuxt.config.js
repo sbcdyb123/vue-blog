@@ -52,7 +52,8 @@ export default {
       src: '~/plugins/v-waypoint.js',
       mode: 'client'
     },
-    '@/plugins/animate.css.js'
+    '@/plugins/animate.css.js',
+    '~/plugins/filter.js'
   ],
   /*
    ** Auto import components
