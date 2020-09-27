@@ -165,7 +165,6 @@ export default {
         font-size: 30px;
         font-weight: bold;
         transition: color 0.15s ease-out;
-        color: $title-font-color;
         &:hover {
           & {
             color: $hover_font_color;

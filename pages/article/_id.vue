@@ -152,6 +152,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+body{
+  font-family: 'Microsoft Yahei',sans-serif;
+}
 .article_container {
   background: white;
   .tag {
