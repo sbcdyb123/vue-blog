@@ -10,19 +10,19 @@
       <div class="content">
         <div class="release_time">
           <a-icon type="clock-circle" />
-          <span>发布于2019-12-31</span>
+          <span>发布于{{ item.create_time |timeformat }}</span>
         </div>
         <div class="title">
-          GraphQL 实现递归查询
+          {{ item.title }}
         </div>
         <div class="info">
           <div class="info_item">
             <a-icon type="eye" />
-            <span>8,336热度</span>
+            <span>{{ (item.pageviews ? item.pageviews : 0) }}热度</span>
           </div>
           <div class="info_item">
             <a-icon type="message" />
-            <span>30条评论</span>
+            <span>{{ (item.like_count?item.like_count:0) }}条评论</span>
           </div>
           <div class="info_item">
             <a-icon type="folder-open" />
@@ -33,15 +33,17 @@
           <div
             class="summary"
           >
-            当我们需要用 GraphQL 查询多层套嵌的数据，比如像 WordPress 这样套嵌的评论信息时，通常的写法是： { posts(first: 100)
+            {{ item.summary }}
           </div>
           <div>
-            <a-icon type="more" class="icon" :rotate="90" />
+            <nuxt-link :to="`/article/${item.id}`">
+              <a-icon type="more" class="icon" :rotate="90" />
+            </nuxt-link>
           </div>
         </div>
       </div>
       <div class="img_container">
-        <img src="@/assets/img/test3.jpg" alt>
+        <img :src="item.banner" alt>
       </div>
     </article>
   </div>

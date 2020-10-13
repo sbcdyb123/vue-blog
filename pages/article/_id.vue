@@ -85,9 +85,12 @@ import '@/assets/scss/vue.scss' // 引入markdown 样式
 
 export default {
   scrollToTop: true,
-  async asyncData ({ $axios }) {
+  validate ({ params }) {
+    return !isNaN(+params.id)
+  },
+  async asyncData ({ $axios, params }) {
     const res = await $axios.$get(
-      'http://localhost:5000/v1/article/getArticleById/3'
+      '/article/getArticleById/' + params.id
     )
     // 基本配置与代码高亮配置
     marked.setOptions({
@@ -148,6 +151,17 @@ export default {
       this.anchorList = anchorList
     })
   }
+  // created () {
+  //   setTimeout(() => {
+  //     this.getInfo()
+  //   }, 5000)
+  // },
+  // methods: {
+  //   async getInfo () {
+  //     const res2 = await getBlog(3)
+  //     console.log(res2)
+  //   }
+  // }
 }
 </script>
 

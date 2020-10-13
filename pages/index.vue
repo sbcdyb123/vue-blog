@@ -10,8 +10,16 @@
             "他把自己带入了人流，身影渐渐隐没在灯火中。"
           </div>
           <div class="contact">
-            <a v-for="item in contact" :key="item.link" :href="item.link" class="icon_wrap">
-              <a-icon :type="item.iconType" :style="'color:'+item.iconColor" />
+            <a
+              v-for="item in contact"
+              :key="item.link"
+              :href="item.link"
+              class="icon_wrap"
+            >
+              <a-icon
+                :type="item.iconType"
+                :style="'color:' + item.iconColor"
+              />
             </a>
           </div>
         </div>
@@ -28,7 +36,7 @@
       </div>
       <div class="article_list">
         <title-bar />
-        <article-card :article-list="articleList" />
+        <article-card :article-list="items" />
       </div>
       <previous-button @click.native="addArticle" />
     </div>
@@ -46,6 +54,17 @@ export default {
     SmallCard,
     ArticleCard,
     PreviousButton
+  },
+  async asyncData ({ $axios }) {
+    const res = await $axios.$get('/article/getArticleList', {
+      params: {
+        count: 2,
+        page: 0
+      }
+    })
+    return {
+      ...res
+    }
   },
   data () {
     return {
@@ -75,20 +94,17 @@ export default {
           iconType: 'zhihu',
           iconColor: '#0177D7'
         }
-      ],
-      articleList: [
-        {
-          id: 1
-        },
-        {
-          id: 2
-        }
       ]
     }
   },
+
   methods: {
-    addArticle () {
-      this.articleList = [...[{ id: '' }, { id: '' }], ...this.articleList]
+    async addArticle () {
+      const page = this.page + 1
+      const count = this.count
+      const res = await this.$axios.$get('/article/getArticleList', { params: { page, count } })
+      this.items = [...this.items, ...res.items]
+      this.page = page
     }
   }
 }
@@ -131,7 +147,7 @@ export default {
           justify-content: space-evenly;
           width: 100%;
           margin-top: 10px;
-          .icon_wrap{
+          .icon_wrap {
             display: block;
             font-size: 20px;
           }
@@ -163,9 +179,9 @@ export default {
   }
   .content {
     margin: 0 550px;
-    .start_dash{
+    .start_dash {
       margin-top: 80px;
-      .card_container{
+      .card_container {
         margin-top: 30px;
         display: flex;
         justify-content: space-evenly;
